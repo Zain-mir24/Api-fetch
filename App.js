@@ -1,29 +1,34 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import { StatusBar } from "expo-status-bar";
+import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import { StyleSheet, Text, View } from 'react-native';
-import Screen1 from './components/Screen1';
+import { StyleSheet, Text, View } from "react-native";
+import Screen1 from "./components/Screen1";
+import Screen2 from "./components/Screen2"
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <myDrawer />
-    </View>
+    <NavigationContainer>
+      <MyDrawer />
+    </NavigationContainer>
   );
 }
 const Stack = createStackNavigator();
-function myDrawer(){
-
+function MyDrawer() {
+  return (
+    <Stack.Navigator initialRouteName="Home">
+      <Stack.Screen name="Home" component={Screen1} />
+      <Stack.Screen name="Screen2" component={Screen2} />
+    </Stack.Navigator>
+  );
 }
-
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
