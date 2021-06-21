@@ -13,7 +13,7 @@ function Screen1({navigation}) {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
       .then((json) => setData(json))
-      .then((json)=>setEmail(json.email))
+   
       .catch((error) => console.error(error))
 
   }, []);
@@ -23,7 +23,7 @@ function Screen1({navigation}) {
             <FlatList 
             data={data}
             renderItem={({ item,index }) => (
-                <TouchableOpacity onPress={()=>navigation.navigate("Screen2",{    Data:item.phone      })}>
+                <TouchableOpacity onPress={()=>navigation.navigate("Screen2",{    Data:data ,ID:item.id    })}>
                 <Text style={{marginBottom:10,fontSize:18,color:'#6b0505'}}> {item.email} {item.username}</Text>
                  </TouchableOpacity>
               )}
