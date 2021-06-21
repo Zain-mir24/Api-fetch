@@ -23,7 +23,7 @@ function Screen1({navigation}) {
             <FlatList 
             data={data}
             renderItem={({ item,index }) => (
-                <TouchableOpacity onPress={()=>navigation.navigate("Screen2")}>
+                <TouchableOpacity onPress={()=>navigation.navigate("Screen2",{    Data:item.phone      })}>
                 <Text style={{marginBottom:10,fontSize:18,color:'#6b0505'}}> {item.email} {item.username}</Text>
                  </TouchableOpacity>
               )}
