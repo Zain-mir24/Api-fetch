@@ -2,13 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import React, { useState, useEffect } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import {
-  Container,
-  Header,
-  Content,
-  Card,
-  CardItem,
-  Body,
-  Text,
+  Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right
 } from "native-base";
 import {
   StyleSheet,
@@ -18,50 +12,47 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-function PhotoTab(props, { navigation, route }) {
+function PhotoTab(props,{ navigation, route }) {
   const [show, setShow] = useState();
-  useEffect(() => {
+  const id =props.route.params.id
+  console.log(id)
+    useEffect(() => {
     fetch(
-      "https://jsonplaceholder.typicode.com/users/" +
-      props.route.params.ID.toString() +
-        "/albums"
+      "https://jsonplaceholder.typicode.com/users/"+id+"/albums" 
+      //   +
+     
     )
       .then((response) => response.json())
       .then((json) => setShow(json))
       .catch((error) => console.error(error));
   }, []);
-  return(
+  return (
     <Container>
-      <Header />
-      <Content>
-        {
-          <FlatList
-            data={show}
-            renderItem={({ item, index }) => (
-              <Card>
-                <CardItem>
-                  <Body>
-                    <SafeAreaView>
-                      <TouchableOpacity >
-                        <Text
-                          style={{
-                            marginBottom: 10,
-                            fontSize: 18,
-                            color: "#6b0505",
-                          }}
-                        >
-                          {item.title}{" "}{item.id}
-                        </Text>
-                      </TouchableOpacity>
-                    </SafeAreaView>
-                  </Body>
-                </CardItem>
-              </Card>
-            )}
-          />
-        }
-      </Content>
-    </Container>
+    <Header />
+    <Content>
+      {
+        <FlatList
+        data={show}
+        renderItem={({ item, index }) =>(
+          <Card>
+          <CardItem>
+            <Left>
+              <Thumbnail source={{uri:item.thumbnailUrl}} />
+              <Body>
+                <Text>NativeBase</Text>
+                <Text note>GeekyAnts</Text>
+              </Body>
+            </Left>
+          </CardItem>
+         
+          
+        </Card>
+      
+        
+        )} />}
+    </Content>
+  </Container>
+    
   );
 }
 

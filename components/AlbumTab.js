@@ -23,7 +23,7 @@ function AlbumTab(props,{route,navigation}) {
   useEffect(() => {
     fetch(
       "https://jsonplaceholder.typicode.com/users/" +
-        props.route.params.Id.toString() +
+       props.route.params.Id.toString() +
         "/albums"
     )
       .then((response) => response.json())
@@ -43,7 +43,7 @@ function AlbumTab(props,{route,navigation}) {
                 <CardItem>
                   <Body>
                     <SafeAreaView>
-                      <TouchableOpacity onPress={()=>props.navigation.navigate("PhotoTab",{   ID:item.id    })}>
+                      <TouchableOpacity onPress={()=>props.navigation.navigate("PhotoTab",{   id:item.id    })}>
                         <Text
                           style={{
                             marginBottom: 10,
