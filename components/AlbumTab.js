@@ -17,8 +17,8 @@ import {
   FlatList,
   TouchableOpacity,
 } from "react-native";
-
-function AlbumTab(props) {
+import PhotoTab from "./PhotoTab";
+function AlbumTab(props,{route,navigation}) {
   const [show, setShow] = useState();
   useEffect(() => {
     fetch(
@@ -43,7 +43,7 @@ function AlbumTab(props) {
                 <CardItem>
                   <Body>
                     <SafeAreaView>
-                      <TouchableOpacity>
+                      <TouchableOpacity onPress={()=>props.navigation.navigate("PhotoTab",{   ID:item.id    })}>
                         <Text
                           style={{
                             marginBottom: 10,

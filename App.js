@@ -6,7 +6,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { StyleSheet, Text, View } from "react-native";
 import Screen1 from "./components/Screen1";
 import Screen2 from "./components/Screen2"
-
+import PhotoTab from "./components/PhotoTab";
 export default function App() {
   return (
     <NavigationContainer>
@@ -20,6 +20,7 @@ function MyDrawer() {
     <Stack.Navigator initialRouteName="Home">
       <Stack.Screen name="Home" component={Screen1} />
       <Stack.Screen name="Screen2" component={Screen2} />
+      <Stack.Screen name ="PhotoTab" component={PhotoTab}/>
     </Stack.Navigator>
   );
 }
