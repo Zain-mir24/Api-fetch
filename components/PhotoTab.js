@@ -50,7 +50,7 @@ function PhotoTab(props, { navigation, route }) {
                             color: "#6b0505",
                           }}
                         >
-                          {item.title}{" "}
+                          {item.title}{" "}{item.id}
                         </Text>
                       </TouchableOpacity>
                     </SafeAreaView>
