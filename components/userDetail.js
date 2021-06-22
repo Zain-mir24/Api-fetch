@@ -36,7 +36,7 @@ const userDetail = (props) => {
             </Body>
           </CardItem>
         </Card>
-        <Card>
+        <Card> 
           <CardItem>
             <Body>
               <Text style={styles.Text}>
@@ -52,6 +52,7 @@ const userDetail = (props) => {
     </Container>
   );
 };
+// user details
 const styles = StyleSheet.create({
   container: {
     flex: 1,
