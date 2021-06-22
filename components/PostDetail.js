@@ -9,28 +9,27 @@ import {
     TouchableOpacity,
     Text
   } from "react-native";
+import { Item } from "native-base";
 
-function PostsTab(props) {
+function PostDetail(props) {
     const [show, setShow] = useState();
-  useEffect(() => {
-    fetch(
-      "https://jsonplaceholder.typicode.com/users/" +
-        props.route.params.Id.toString() +
-        "/posts"
-    )
-      .then((response) => response.json())
+    const postid=props.route.params.id
+    useEffect(() => {
+    fetch( "https://jsonplaceholder.typicode.com/users/"+postid+"/comments")
+    .then((response) => response.json())
       .then((json) => setShow(json))
       .catch((error) => console.error(error));
-  }, []);
+    }, []);
+    console.log(postid)
     return (
         <View>
- {
+        {
                     <FlatList
                       data={show}
                      
                       renderItem={({ item, index }) => (
                         <View>
-                        <TouchableOpacity onPress={()=>props.navigation.navigate("PostDetail",{   id:item.id    })}>
+                        
                           <Text
                             style={{
                               marginBottom: 10,
@@ -38,16 +37,13 @@ function PostsTab(props) {
                               color: "#6b0505",
                             }}
                           >
-                            {item.title}
+                            {item.name}
                         
                           </Text>
                          
                          
-                        </TouchableOpacity>
-                        
-                       <Text>
-                       {item.body}
-                       </Text>
+                         
+                     
                           </View>
                         
                       )}
@@ -57,4 +53,4 @@ function PostsTab(props) {
     )
 }
 
-export default PostsTab
+export default PostDetail

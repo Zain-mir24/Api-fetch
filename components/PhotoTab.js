@@ -39,8 +39,8 @@ function PhotoTab(props,{ navigation, route }) {
             <Left>
               <Thumbnail source={{uri:item.thumbnailUrl}} />
               <Body>
-                <Text>NativeBase</Text>
-                <Text note>GeekyAnts</Text>
+                <Text>{item.title}</Text>
+                
               </Body>
             </Left>
           </CardItem>
