@@ -12,13 +12,13 @@ import {
 } from "native-base";
 import {
   StyleSheet,
- SafeAreaView,
+  SafeAreaView,
   View,
   FlatList,
   TouchableOpacity,
 } from "react-native";
 
-function AlbumTab(props)   {
+function AlbumTab(props) {
   const [show, setShow] = useState();
   useEffect(() => {
     fetch(
@@ -32,41 +32,37 @@ function AlbumTab(props)   {
   }, []);
 
   return (
-   
-      <Container>
-        <Header />
-        <Content> 
-          <Card>
-            <CardItem>
-              <Body>
-              <SafeAreaView >
-                  {
-                    <FlatList
-                      data={show}
-                     
-                      renderItem={({ item, index }) => (
-                        <TouchableOpacity>
-                          <Text
-                            style={{
-                              marginBottom: 10, 
-                              fontSize: 18,
-                              color: "#6b0505",
-                            }}
-                          >
-                            {item.title}{" "}
-                          </Text>
-                        </TouchableOpacity>
-                      )}
-                    />
-                  }
-                  </SafeAreaView>
-              
-              </Body>
-            </CardItem>
-          </Card>
-         </Content>
-      </Container>
-    
+    <Container>
+      <Header />
+      <Content>
+        {
+          <FlatList
+            data={show}
+            renderItem={({ item, index }) => (
+              <Card>
+                <CardItem>
+                  <Body>
+                    <SafeAreaView>
+                      <TouchableOpacity>
+                        <Text
+                          style={{
+                            marginBottom: 10,
+                            fontSize: 18,
+                            color: "#6b0505",
+                          }}
+                        >
+                          {item.title}{" "}
+                        </Text>
+                      </TouchableOpacity>
+                    </SafeAreaView>
+                  </Body>
+                </CardItem>
+              </Card>
+            )}
+          />
+        }
+      </Content>
+    </Container>
   );
 }
 

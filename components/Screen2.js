@@ -6,6 +6,7 @@ import { createMaterialBottomTabNavigator } from "@react-navigation/material-bot
 import AlbumTab from "./AlbumTab";
 import userDetail from "./userDetail";
 import PhotoTab from "./PhotoTab";
+import TodoTab from "./TodoTab";
 const Tab = createMaterialBottomTabNavigator();
 function Screen2({ navigation, route }) {
   const IID = route.params.ID;
@@ -15,12 +16,13 @@ function Screen2({ navigation, route }) {
   return (
     <Tab.Navigator 
     initialRouteName="UserDetails"
-    activeColor="purple"
-    inactiveColor="red"
-    barStyle={{backgroundColor:"#694fad"}}>
+    activeColor="white"
+    inactiveColor="black"
+    >
       <Tab.Screen name="UserDetails" initialParams={{alldata:data }} component={userDetail} />
       <Tab.Screen name="Album" initialParams={{Id:IID }}  component={AlbumTab} />
       <Tab.Screen name ="Photo" initialParams={{Id:IID }}component={PhotoTab} />
+      <Tab.Screen name ="Todos" initialParams={{Id:IID }}component={TodoTab} />
     </Tab.Navigator>
   );
 }
