@@ -27,24 +27,46 @@ const userDetail = (props) => {
         <Card>
           <CardItem>
             <Body>
-              <Text style={styles.Text}>
-                companyDetails:
-                {myData[0].company.name}
-                {myData[0].company.bs}
-                {myData[0].company.catchPhrase}
-              </Text>
+              <View
+                style={{
+                  flexDirection: "row",
+                  padding: 10,
+                  borderWidth: 1,
+                  marginBottom: 10,
+                  borderRadius: 10,
+                  borderColor: "black",
+                }}
+              >
+                <Text style={styles.Text}>
+                  companyDetails:
+                  {myData[0].company.name}
+                  {myData[0].company.bs}
+                  {myData[0].company.catchPhrase}
+                </Text>
+              </View>
             </Body>
           </CardItem>
         </Card>
-        <Card> 
+        <Card>
           <CardItem>
             <Body>
-              <Text style={styles.Text}>
-                user address
-                {myData[0].address.street}
-                {myData[0].address.suit}
-                {myData[0].address.city}
-              </Text>
+              <View
+                style={{
+                  flexDirection: "row",
+                  padding: 10,
+                  borderWidth: 1,
+                  marginBottom: 10,
+                  borderRadius: 10,
+                  borderColor: "black",
+                }}
+              >
+                <Text style={styles.Text}>user address:</Text>
+                <Text>
+                  {myData[0].address.street}
+                  {myData[0].address.suit}
+                  {myData[0].address.city}
+                </Text>
+              </View>
             </Body>
           </CardItem>
         </Card>

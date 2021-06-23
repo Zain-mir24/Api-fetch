@@ -14,6 +14,7 @@ import { Item } from "native-base";
 function PostDetail(props) {
     const [show, setShow] = useState();
     const postid=props.route.params.id
+    
     useEffect(() => {
     fetch( "https://jsonplaceholder.typicode.com/users/"+postid+"/comments")
     .then((response) => response.json())
@@ -34,10 +35,12 @@ function PostDetail(props) {
                             style={{
                               marginBottom: 10,
                               fontSize: 18,
-                              color: "#6b0505",
+                              color: "blue",
+                              borderWidth: 1,
+                              padding: 11,
                             }}
                           >
-                            {item.name}
+                        Comment:   {item.body}
                         
                           </Text>
                          
