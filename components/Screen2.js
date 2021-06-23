@@ -7,7 +7,6 @@ import AlbumTab from "./AlbumTab";
 import userDetail from "./userDetail";
 import PostsTab from "./PostsTab";
 import TodoTab from "./TodoTab";
-import Albumphoto from "./Albumphoto";
 const Tab = createMaterialBottomTabNavigator();
 function Screen2({ navigation, route }) {
   const IID = route.params.ID;
@@ -24,7 +23,7 @@ function Screen2({ navigation, route }) {
       <Tab.Screen name="Album" initialParams={{Id:IID }}  component={AlbumTab} />
       <Tab.Screen name ="Posts" initialParams={{Id:IID }}component={PostsTab} />
       <Tab.Screen name ="Todos" initialParams={{Id:IID }}component={TodoTab} />
-      <Tab.Screen name ="Albumphoto" initialParams={{Id:IID }}component={Albumphoto} />
+     
     </Tab.Navigator>
   );
 }

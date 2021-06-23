@@ -8,6 +8,9 @@ import Screen1 from "./components/Screen1";
 import Screen2 from "./components/Screen2"
 import PhotoTab from "./components/PhotoTab";
 import PostDetail from "./components/PostDetail";
+
+
+import Albumphoto from "./components/Albumphoto"
 export default function App() {
   return (
     <NavigationContainer>
@@ -23,6 +26,7 @@ function MyDrawer() {
       <Stack.Screen name="Screen2" component={Screen2} />
       <Stack.Screen name ="PhotoTab" component={PhotoTab}/>
       <Stack.Screen name="PostDetail" component={PostDetail} />
+      <Stack.Screen name="Albumphoto" component={Albumphoto} />
     </Stack.Navigator>
   );
 }
