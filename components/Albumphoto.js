@@ -26,7 +26,7 @@ import {
 
 function Albumphoto(props,{route}) {
 const Url=props.route.params.url
-console.log(Url)
+
   return (
     <View>
   <Image 

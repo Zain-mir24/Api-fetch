@@ -45,7 +45,7 @@ function PhotoTab(props, { navigation, route }) {
         data={show}
         keyExtractor={(item) => item.url}
         renderItem={({ item }) => {
-        
+       
           return (
             <List>
               <ListItem thumbnail>
