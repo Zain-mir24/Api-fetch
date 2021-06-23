@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import {
     StyleSheet,
-   SafeAreaView,
+    SafeAreaView,
     View,
     FlatList,
     TouchableOpacity,
