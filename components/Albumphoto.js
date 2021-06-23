@@ -21,12 +21,19 @@ import {
   View,
   FlatList,
   TouchableOpacity,
+  Image
 } from "react-native";
 
-function Albumphoto() {
+function Albumphoto(props,{route}) {
+const Url=props.route.params.url
+console.log(Url)
   return (
     <View>
-      <Text>Yala habibi</Text>
+  <Image  source={{
+          uri: Url,
+        }}>
+
+  </Image>
     </View>
   );
 }

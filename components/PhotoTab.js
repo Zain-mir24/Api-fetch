@@ -31,7 +31,7 @@ function PhotoTab(props, { navigation, route }) {
   console.log(id);
   useEffect(() => {
     fetch(
-      "https://jsonplaceholder.typicode.com/users/" + id + "/albums"
+      "https://jsonplaceholder.typicode.com/users/" + id + "/photos"
       //   +
     )
       .then((response) => response.json())
@@ -45,6 +45,7 @@ function PhotoTab(props, { navigation, route }) {
         data={show}
         keyExtractor={(item) => item.url}
         renderItem={({ item }) => {
+        
           return (
             <List>
               <ListItem thumbnail>
