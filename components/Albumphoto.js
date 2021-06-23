@@ -16,7 +16,9 @@ import {
 function Albumphoto() {
     return (
         <View>
-
+  <Text>
+      Yala habibi
+  </Text>
         </View>
     )
 }

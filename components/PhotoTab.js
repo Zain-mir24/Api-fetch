@@ -2,7 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import React, { useState, useEffect } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import {
-  Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right
+  Container, Header, Content, Card, CardItem,List,ListItem, Thumbnail, Text, Button, Icon, Left, Body, Right
 } from "native-base";
 import {
   StyleSheet,
@@ -26,34 +26,31 @@ function PhotoTab(props,{ navigation, route }) {
       .then((json) => setShow(json))
       .catch((error) => console.error(error));
   }, []);
-  return (
-    <Container>
-    <Header />
-    <Content>
-      {
-        <FlatList
-        data={show}
-        renderItem={({ item, index }) =>(
-          <Card>
-          <CardItem>
-            <Left>
-              <Thumbnail source={{uri:item.thumbnailUrl}} />
-              <Body>
-                <Text>{item.title}</Text>
-                
-              </Body>
-            </Left>
-          </CardItem>
-         
-          
-        </Card>
-      
-        
-        )} />}
-    </Content>
-  </Container>
+
+  return(
+    <View>
+    <FlatList
+    data={show}
+    keyExtractor={(item)=>item.url}
+    renderItem={({item})=>{
+      return(
+            <List>
+    <ListItem thumbnail>
+    <Left>
+    <TouchableOpacity onPress={()=>props.navigation.navigate("Albumphoto",{   url:item.url  })}>
+                  <Thumbnail square source={{ uri: item.thumbnailUrl }} />
+                  </TouchableOpacity>
+                </Left>
+                <Body>
+                  <Text style={{color:'gray',}} note numberOfLines={2}>{item.title}</Text>
+                </Body>
+                </ListItem>
+            </List>  ) }} />
+     </View>)}
+   
+   
+  
     
-  );
-}
+
 
 export default PhotoTab;
